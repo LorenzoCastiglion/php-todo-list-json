@@ -9,11 +9,8 @@ const app = createApp({
         return {
 
             newTodo: '',
-            todos: [
-                { id: id++, text: 'Imparare HTML', done: false, hasError: false },
-                { id: id++, text: 'Imparare JavaScript', done: false, hasError: false },
-                { id: id++, text: 'Imparare Vue', done: false, hasError: false }
-            ]
+            todos: [],
+            apiUrl: './server.php'
 
 
         }
@@ -25,7 +22,6 @@ const app = createApp({
             } else {
                 this.hasError = false;
                 this.send()
-                // 
             }
             this.newTodo = ''
 
@@ -40,12 +36,30 @@ const app = createApp({
         },
 
         send() {
-            axios.post('server.php', { 'todo': this.newTodo }, { headers: { 'Content-Type': 'multipart/form-data' } }).then(
+
+            axios.post(this.apiUrl, { 'todo': this.newTodo }, { headers: { 'Content-Type': 'multipart/form-data' } }).then(
                 (response) => {
-                    this.todos.unshift({ id: id++, text: response.data, done: false })
+                   this.getTodo()
                 }
             )
+        },
+
+        getTodo(){
+            axios.get(this.apiUrl).then(
+                (res)=>{
+
+                    this.todos = res.data
+
+                }
+            )
+
         }
+
+    },
+
+    mounted () {
+
+        this.getTodo()
 
     }
 })
