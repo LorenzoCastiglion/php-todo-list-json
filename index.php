@@ -20,7 +20,7 @@ include __DIR__ . '/partials/head.php'
 
             <div v-if="hasError" class="alert alert-danger mt-2">Il task richiede almeno 7 battute</div>
         </form>
-        <div class=" row flex-column ">
+        <div class=" row flex-column contenitore overflow-auto">
             <ul class=" d-flex flex-column my-3 justify-content-center list-unstyled ">
                 <li class="my-3 d-flex justify-content-between" v-for="(todo,index) in todos" :key="todo.id">
                     <span :class="{ done: todo.done }" @click="toggle(index)"> {{ todo.text }}</span>

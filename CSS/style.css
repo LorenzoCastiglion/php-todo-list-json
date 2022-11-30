@@ -31,6 +31,7 @@ h1 {
     text-decoration: line-through;
     text-decoration-thickness: 3px;
     text-decoration-color: red;
+    
 
 }
 
@@ -79,4 +80,9 @@ h1 {
 .remove:hover::after {
     transform: rotate(45deg);
     background-color: red;
+}
+
+
+.contenitore{
+    height: 300px;
 }
