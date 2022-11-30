@@ -18,6 +18,3 @@
     <script src='./JS/script.js' defer></script>
     <title>Document</title>
 </head>
-
-<body>
-</body>
