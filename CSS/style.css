@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Caveat&family=Raleway:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    height: 100vh;
+    position: relative;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+
+.notepad {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+h1 {
+    font-family: 'Alfa Slab One', cursive;
+}
+
+
+.done {
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+    text-decoration-color: red;
+
+}
+
+
+
+
+
+/* bottone remove animato */
+.remove {
+    color: black;
+    transition: all 0.5s;
+    position: relative;
+}
+
+.remove::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 70%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    background-color: black;
+}
+
+.remove::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 70%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    background-color: black;
+}
+
+.remove:hover::before {
+    transform: rotate(-45deg);
+    background-color: red;
+}
+
+.remove:hover::after {
+    transform: rotate(45deg);
+    background-color: red;
+}
