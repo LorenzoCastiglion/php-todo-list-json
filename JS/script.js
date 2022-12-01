@@ -27,8 +27,21 @@ const app = createApp({
 
         },
 
-        removeTodo(todo) {
-            this.todos = this.todos.filter((btn) => btn !== todo)
+        removeTodo(index) {
+
+            const todoFormData = {
+               deleteTodoIndex: index,
+            }
+
+            axios.post(
+                this.apiUrl,
+                todoFormData,
+                { headers: { 'Content-Type': 'multipart/form-data' }}).then((res)=>{
+
+                    this.getTodo()
+                }
+                )
+            
         },
 
         toggle(index) {
@@ -41,6 +54,7 @@ const app = createApp({
                 todoFormData,
                 { headers: { 'Content-Type': 'multipart/form-data' }}).then((res)=>{
 
+                    this.getTodo()
                 }
                 )
 
