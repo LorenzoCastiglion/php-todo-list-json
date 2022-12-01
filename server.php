@@ -20,7 +20,35 @@ if (isset($_POST['todo'])) {
 
         file_put_contents($file_url, json_encode($list));
 
-}else{
+}elseif (isset($_POST['toggleTodoIndex'])) {
+
+    $todoIndex = $_POST['toggleTodoIndex'];
+
+
+    if($list[$todoIndex] -> done == 1){
+
+        $list[$todoIndex] -> done == false;
+
+    }else{
+
+        $list[$todoIndex] -> done == true;
+
+    }
+
+    file_put_contents($file_url, json_encode($list));
+
+}
+
+elseif (isset($_POST['deleteTodoIndex'])){
+
+    $todoIndex = $_POST['deleteTodoIndex'];
+
+    array_splice($list, $todoIndex, 1);
+
+    file_put_contents($file_url, json_encode($list));
+
+}
+else{
 
     header('Content-type: application/json');
     echo json_encode($list);

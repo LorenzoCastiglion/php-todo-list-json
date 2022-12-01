@@ -32,7 +32,19 @@ const app = createApp({
         },
 
         toggle(index) {
-            this.todos[index].done = !this.todos[index].done;
+            const todoFormData = {
+                toggleTodoIndex: index,
+            }
+
+            axios.post(
+                this.apiUrl,
+                todoFormData,
+                { headers: { 'Content-Type': 'multipart/form-data' }}).then((res)=>{
+
+                }
+                )
+
+            
         },
 
         send() {
